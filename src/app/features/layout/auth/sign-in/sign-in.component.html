@@ -1,0 +1,88 @@
+<div class="m-0 p-0">
+  <div class="custom-container">
+    <div class="custom-card row">
+      <div class="col-12 col-md-6 custom-container-left">
+        <div class="container">
+          <div class="row welcome">
+            <img class="logo" src="assets/favicon.png" alt="logo">
+            <P style="text-align: center">WELCOME TO YOOGAH !</P>
+          </div>
+          <!--<div class="row text-center pt-2 ">
+            <h1 class="logo"><b>LOGO</b></h1>
+          </div>-->
+        </div>
+      </div>
+      <div class="col-12 col-md-6 custom-container-right">
+        <div class="p-4 form-container">
+          <div class="text-center mb-4 mt-4 mobile-logo d-none">
+            <div class="container">
+              <div class="row">
+<!--                <img class="logo" src="assets/app_icon.png" alt="logo">-->
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="login-card">
+            <div>
+              <h3 class="headings text-center pb-4 " >LOGIN</h3>
+              <form [formGroup]="signInForm">
+                <div class="form-group">
+                  <input class="form-control ps-3 custom-input-style" type="email" name="email" id="email" [formControlName]="'email'" autocomplete="new-email"
+                         placeholder="Username">
+                  <!--                <label for="email" class="text-danger ps-3 pt-1"-->
+                  <!--                       *ngIf="signInForm.controls.email.touched && signInForm.controls.email.invalid">-->
+                  <!--                  <span *ngIf="signInForm.controls.email.errors?.email">Invalid username entered</span>-->
+                  <!--                  <span *ngIf="signInForm.controls.email.errors?.required">Username is required</span>-->
+                  <!--                </label>-->
+                </div>
+
+                <div class="form-group mt-4">
+                  <input class="form-control ps-3 custom-input-style" type="password" name="password" id="password" [formControlName]="'password'" autocomplete="new-password"
+                         placeholder="Password">
+                  <!--                <label for="password" class="text-danger ps-3 pt-1"-->
+                  <!--                       *ngIf="signInForm.controls.password.touched && signInForm.controls.password.invalid">-->
+                  <!--                  <span *ngIf="signInForm.controls.password.errors?.required">Password is required</span>-->
+                  <!--                </label>-->
+                </div>
+
+                <!--              <div class="form-group mt-4 d-flex">-->
+                <!--                <div class="row forget-remeber">-->
+                <!--                  <div class="col">-->
+                <!--                    <div class="remeberMe">-->
+                <!--                      <input type="checkbox" name="remember-me" id="remember-me" #rememberMe>-->
+                <!--                      <label for="remember-me" class=" ps-2 mb-1 " >Remember me</label>-->
+                <!--                    </div>-->
+                <!--                  </div>-->
+                <!--                  <div class="col">-->
+                <!--                    <span class="forget" routerLink="/auth/forgot-password">Forgot your password?</span>-->
+                <!--                  </div>-->
+                <!--                </div>-->
+                <!--              </div>-->
+
+                <!--              <button class="btn-green w-100 mt-4 pt-2 pb-2" (click)="signIn(rememberMe.checked)">Login</button>-->
+                              <button class="btn-green w-100 mt-4 pt-1 pb-1">Login</button>
+
+
+                <div class="text-center register title-1 m-2" routerLink="/sign-in/sign-up"
+                     style="outline: none; cursor: pointer;">
+                  Don't Have an account? Register !
+                </div>
+              </form>
+
+<!--              <p class="register text-center pt-3">-->
+<!--                <span routerLink="/sign-up">Dont have an account? Register</span> <br>-->
+<!--              </p>-->
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

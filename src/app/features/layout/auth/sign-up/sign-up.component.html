@@ -1,0 +1,83 @@
+<div class="m-0 p-0">
+  <div class="custom-container">
+    <div class="custom-card row">
+      <div class="col-12 col-md-6 custom-container-left">
+        <div class="container">
+          <div class="row welcome">
+            <img class="logo" src="assets/favicon.png" alt="logo">
+            <P style="text-align: center">WELCOME TO YOOGAH !</P>
+          </div>
+          <!--<div class="row text-center pt-2 ">
+            <h1 class="logo"><b>LOGO</b></h1>
+          </div>-->
+        </div>
+      </div>
+      <div class="col-12 col-md-6 custom-container-right">
+        <div class="p-4 form-container">
+          <div class="text-center mb-4 mt-4 mobile-logo d-none">
+            <div class="container">
+              <div class="row">
+                <!--                <img class="logo" src="assets/app_icon.png" alt="logo">-->
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="login-card">
+            <h3 class="headings text-center pb-4 " >REGISTER</h3>
+            <form [formGroup]="signUpForm">
+              <div class="form-group">
+                <input class="form-control custom-input-style ps-3" type="text" name="firstName" id="firstName" [formControlName]="'firstName'" placeholder="First Name">
+<!--                <label for="firstName" class="text-danger ps-3 pt-1"-->
+<!--                       *ngIf="signUpForm.controls.firstName.touched && signUpForm.controls.firstName.invalid">-->
+<!--                  <span *ngIf="signUpForm.controls.firstName.errors?.required">First name is required</span>-->
+<!--                </label>-->
+              </div>
+              <div class="form-group mt-4">
+                <input class="form-control custom-input-style ps-3" type="text" name="lastName" id="lastName" [formControlName]="'lastName'" placeholder="Last Name">
+<!--                <label for="lastName" class="text-danger ps-3 pt-1"-->
+<!--                       *ngIf="signUpForm.controls.lastName.touched && signUpForm.controls.lastName.invalid">-->
+<!--                  <span *ngIf="signUpForm.controls.lastName.errors?.required">Last name is required</span>-->
+<!--                </label>-->
+              </div>
+              <div class="form-group mt-4">
+                <input class="form-control custom-input-style ps-3" type="email" name="email" id="email" [formControlName]="'email'" placeholder="Email">
+<!--                <label for="email" class="text-danger ps-3 pt-1"-->
+<!--                       *ngIf="signUpForm.controls.email.touched && signUpForm.controls.email.invalid">-->
+<!--                  <span *ngIf="signUpForm.controls.email.errors?.email">Invalid email entered</span>-->
+<!--                  <span *ngIf="signUpForm.controls.email.errors?.required">Email is required</span>-->
+<!--                </label>-->
+              </div>
+              <div class="form-group mt-4">
+                <input class="form-control custom-input-style ps-3" type="password" name="password" id="password" [formControlName]="'password'" placeholder="Password">
+<!--                <label for="password" class="text-danger ps-3 pt-1"-->
+<!--                       *ngIf="signUpForm.controls.password.touched && signUpForm.controls.password.invalid">-->
+<!--                  <span *ngIf="signUpForm.controls.password.errors?.required">Password is required</span>-->
+<!--                  <span *ngIf="signUpForm.controls.password.errors?.minlength">Password length should be 8 or more!</span>-->
+<!--                </label>-->
+              </div>
+
+<!--              <label class="text-danger ps-3 pt-1" *ngIf="signUpForm.errors?.matching">-->
+<!--                Passwords does not match !-->
+<!--              </label>-->
+
+<!--              <button class="btn-green w-100 mt-4 pt-2 pb-2" (click)="signUp()">Register</button>-->
+              <button class="btn-green w-100 mt-4 pt-2 pb-2">Register</button>
+
+            </form>
+
+            <div class="text-center register title-1 m-2" routerLink="/sign-in/sign-in"
+                 style="outline: none; cursor: pointer;">
+              Already Have an account? Login !
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

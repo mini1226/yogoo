@@ -1,0 +1,117 @@
+.logo{
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.welcome{
+  font-family: Impact;
+}
+
+
+.login-card {
+  border: 1px solid black;
+  font-family: Impact;
+  //min-height: 340px;
+  //width: fit-content;
+  //width: -moz-fit-content;
+  padding: 15px 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+
+.custom-input-style {
+  border: 1px solid black !important;
+  font-size: 13px !important;
+}
+
+
+.btn-green {
+  background-color: black;
+  color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.register{
+  font-size: 10px;
+}
+
+
+.custom-container {
+  //background: linear-gradient(to right, yellowgreen 50%, $white-color 50%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/../../../../assets/signin.jpg");
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+.custom-card {
+  min-height: 75vh;
+  width: fit-content;
+  width: -moz-fit-content;
+  -webkit-border-radius: 10px;
+  min-width: 75vw;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-container-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(237,237,237,0.7);
+  //background: rgb(237,237,237,0.7);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.custom-container-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EDEDED;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.form-container {
+  width: 70%;
+}
+
+@media all and (max-width: 767px) and (min-width: 320px){
+
+  .custom-container-left{
+    display: none !important;
+  }
+
+  .custom-container-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(237,237,237,0.7);
+    border-radius: 20px;
+  }
+
+  .mobile-logo {
+    display: block !important;
+  }
+
+  .custom-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/../../../../assets/signin.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
