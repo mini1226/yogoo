@@ -31,38 +31,22 @@
                 <div class="form-group">
                   <input class="form-control ps-3 custom-input-style" type="email" name="email" id="email" [formControlName]="'email'" autocomplete="new-email"
                          placeholder="Username">
-                  <!--                <label for="email" class="text-danger ps-3 pt-1"-->
-                  <!--                       *ngIf="signInForm.controls.email.touched && signInForm.controls.email.invalid">-->
-                  <!--                  <span *ngIf="signInForm.controls.email.errors?.email">Invalid username entered</span>-->
-                  <!--                  <span *ngIf="signInForm.controls.email.errors?.required">Username is required</span>-->
-                  <!--                </label>-->
+                  <div *ngIf="email.invalid && email.touched" class="error-message">
+                    <div *ngIf="email.errors.required" style="color: #F53C56; font-size: 10px">Username is required !</div>
+                    <div *ngIf="email.errors.email" style="color: #F53C56; font-size: 10px">Email is invalid !</div>
+                  </div>
                 </div>
 
                 <div class="form-group mt-4">
                   <input class="form-control ps-3 custom-input-style" type="password" name="password" id="password" [formControlName]="'password'" autocomplete="new-password"
                          placeholder="Password">
-                  <!--                <label for="password" class="text-danger ps-3 pt-1"-->
-                  <!--                       *ngIf="signInForm.controls.password.touched && signInForm.controls.password.invalid">-->
-                  <!--                  <span *ngIf="signInForm.controls.password.errors?.required">Password is required</span>-->
-                  <!--                </label>-->
+                  <div *ngIf="password.invalid && password.touched" class="error-message">
+                    <div *ngIf="password.errors.required" style="color: #F53C56; font-size: 10px">Password is required!</div>
+                  </div>
                 </div>
 
-                <!--              <div class="form-group mt-4 d-flex">-->
-                <!--                <div class="row forget-remeber">-->
-                <!--                  <div class="col">-->
-                <!--                    <div class="remeberMe">-->
-                <!--                      <input type="checkbox" name="remember-me" id="remember-me" #rememberMe>-->
-                <!--                      <label for="remember-me" class=" ps-2 mb-1 " >Remember me</label>-->
-                <!--                    </div>-->
-                <!--                  </div>-->
-                <!--                  <div class="col">-->
-                <!--                    <span class="forget" routerLink="/auth/forgot-password">Forgot your password?</span>-->
-                <!--                  </div>-->
-                <!--                </div>-->
-                <!--              </div>-->
-
-                <!--              <button class="btn-green w-100 mt-4 pt-2 pb-2" (click)="signIn(rememberMe.checked)">Login</button>-->
-                              <button class="btn-green w-100 mt-4 pt-1 pb-1">Login</button>
+                <button class="btn-green w-100 mt-4 pt-2 pb-2" (click)="signIn()">Signin</button>
+<!--                              <button class="btn-green w-100 mt-4 pt-1 pb-1">Login</button>-->
 
 
                 <div class="text-center register title-1 m-2" routerLink="/sign-in/sign-up"

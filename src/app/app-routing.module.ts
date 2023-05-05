@@ -5,6 +5,7 @@ const routes: Routes = [
   {path:'', redirectTo: 'sign-in', pathMatch: "full"},
   {path:'sign-in', loadChildren: () => import('./features/layout/auth/auth.module').then(m => m.AuthModule)},
   {path:'start', loadChildren: () => import('./features/layout/main/main.module').then(m => m.MainModule)},
+
 ];
 
 @NgModule({
