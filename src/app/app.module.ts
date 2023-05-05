@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgxSpinnerModule} from "ngx-spinner";
 import {AlertModule} from "ngx-alerts";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./core/intercepters/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import {HttpClientModule} from "@angular/common/http";
     NgxSpinnerModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}) // Add AlertModule to imports array
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

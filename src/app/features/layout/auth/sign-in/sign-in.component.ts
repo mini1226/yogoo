@@ -39,7 +39,7 @@ export class SignInComponent {
 
   signIn( ): Promise<boolean> {
     return new Promise(resolve => {
-      console.log(this.signInForm.value)
+      this.spinner.show();
       this.userService.signIn(this.signInForm.value)
         .subscribe((res: any) => {
           // const user = (res.userId, res.firstName, res.email);
@@ -47,17 +47,19 @@ export class SignInComponent {
           // sessionStorage.setItem('user', JSON.stringify(user));
           sessionStorage.setItem('token', JSON.stringify(res.token));
           // console.log(sessionStorage.user);
-          this.alertService.success(res.message);
+          this.alertService.success('User Logged In successfully');
           this.router.navigate(['/start']);
+          this.spinner.hide();
           resolve(true);
         }, (error: any) => {
           console.log(error.error);
           if (error.error.message === 'Login failed!, Invalid Credentials') {
             this.alertService.danger('Login failed!, Invalid Credentials');
           } else {
-            this.alertService.danger('Something went wrong!');
+            this.alertService.danger('Login failed!, Invalid Credentials');
           }
           resolve(false);
+          this.spinner.hide();
         });
     });
   }
