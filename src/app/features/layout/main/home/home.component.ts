@@ -41,4 +41,12 @@ export class HomeComponent implements OnInit{
   classifyVersion() {
     this.router.navigate(['start/classify'])
   }
+
+  guideVersion() {
+    this.router.navigate(['start/guide'])
+  }
+
+  multiVersion() {
+    this.router.navigate(['start/multi'])
+  }
 }

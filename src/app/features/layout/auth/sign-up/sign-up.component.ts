@@ -49,7 +49,7 @@ export class SignUpComponent {
   }
 
   async signUp(): Promise<any> {
-    console.log(this.signUpForm.value);
+    // console.log(this.signUpForm.value);
     this.spinner.show();
     this.signUpForm.markAllAsTouched();
     if (this.signUpForm.valid) {

@@ -7,17 +7,22 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {AlertModule} from "ngx-alerts";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/intercepters/auth.interceptor";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}) // Add AlertModule to imports array
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}), // Add AlertModule to imports array
+  BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

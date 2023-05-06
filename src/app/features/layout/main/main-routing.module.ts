@@ -4,12 +4,16 @@ import {MainComponent} from "./main.component";
 import {HomeComponent} from "./home/home.component";
 import {AuthGuard} from "../../../core/guard/auth.guard";
 import {ClasificationComponent} from "./home/clasification/clasification.component";
+import {GuideComponent} from "./home/guide/guide.component";
+import {MultiPersonComponent} from "./home/multi-person/multi-person.component";
 
 const routes: Routes = [
   {path:'', pathMatch:'full', component: MainComponent},
   {path: 'start', component: MainComponent},
   {path: 'home', component: HomeComponent},
   {path: 'classify', component: ClasificationComponent},
+  {path: 'guide', component: GuideComponent},
+  {path: 'multi', component: MultiPersonComponent},
 ];
 
 

@@ -62,3 +62,39 @@ body, html {
   color: white;
   text-align: justify;
 }
+
+
+.video-container {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+
+.btn-start{
+  background-color: rgba(255, 255, 255, 0.2); /* white color with 50% opacity */
+  border-radius: 20px;
+  width: 175px;
+  border: 2px solid white;
+  color: white;
+}
