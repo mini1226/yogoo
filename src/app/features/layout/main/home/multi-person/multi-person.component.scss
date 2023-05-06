@@ -1,0 +1,100 @@
+body, html {
+  height: 100%;
+}
+.background-image-1 {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //padding-top: -81px;
+  position: marker;
+  //background-image: url('../../../../assets/images/backstart.jpg')
+  //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../../../../assets/backstart.jpg')
+  //animation: flickerAnimation 20s infinite;
+}
+
+
+.background-image-2 {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //padding-top: -81px;
+  position: marker;
+  //background-image: url('../../../../assets/images/backstart2.jpg')
+  //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../../../../assets/backstart2.jpg')
+  //animation: flickerAnimation 20s infinite;
+}
+
+.title-one{
+  font-family: Impact;
+  color: white;
+  align-content: center;
+  text-align: center;
+  font-size: 100px;
+}
+
+
+
+.title-two{
+  font-family: Impact;
+  color: white;
+  align-content: center;
+  text-align: center;
+  font-size: 100px;
+}
+
+.start{
+  align-content: center;
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+}
+
+.classification{
+  font-family: Impact;
+  border: 5px solid white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 40px;
+  background-color: rgba(255, 255, 255, 0.2); /* white color with 50% opacity */
+  color: white;
+  text-align: justify;
+}
+
+
+.video-container {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+
+.btn-start{
+  background-color: rgba(255, 255, 255, 0.2); /* white color with 50% opacity */
+  border-radius: 20px;
+  width: 175px;
+  border: 2px solid white;
+  color: white;
+}
