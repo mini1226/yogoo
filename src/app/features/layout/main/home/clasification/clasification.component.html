@@ -1,6 +1,35 @@
-<div class="background-image-1" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('assets/backstart4.jpg')">
-  <h4 class="title-one pt-1">CLASSIFY POSE</h4>
-  <div>
-    <input type="file" (change)="onFileSelected($event)">
+<div class="video-background">
+  <video autoplay loop muted style="background-size: cover !important; ">
+    <source src="assets/backvie2.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <p style="font-size: 70px; font-family: Impact ">YOOGAH</p>
+    <p>Counteract the stresses of modern life by becoming more mindful and compassionate</p>
+    <div class="classification">
+      <p>PLEASE FOLLOW BELOW STEPS :</p>
+      <p>1. RECORD A VIDEO OF USER PERFORMING YOGA</p>
+      <P>2. UPLOAD IT TO THE SYSTEM</P>
+      <P>3. GET THE RESULTS AND CLASSIFY YOUR POSE</P>
+      <P style="text-align: center; margin-top: 40px">UPLOAD HERE</P>
+      <input type="file" (change)="onFileSelected($event)">
+<!--      <button mat-raised-button (click)="openModal()">Open Modal</button>-->
+
+
+<!--      <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="openModal()" >CLASSIFY</button>-->
+    </div>
+    <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="getbackhome()">BACK HOME</button>
   </div>
 </div>
+
+
+
+
+
+<!--<div class="background-image-1" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('assets/backstart4.jpg')">-->
+<!--  <h4 class="title-one pt-1">CLASSIFY POSE</h4>-->
+<!--  <div class="classification">-->
+<!--    -->
+<!--  </div>-->
+<!--  <div>-->
+<!--  </div>-->
+<!--</div>-->

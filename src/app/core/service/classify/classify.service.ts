@@ -14,4 +14,8 @@ export class ClassifyService {
     return this.http.get(environment.baseUrl + 'open_camera');
   }
 
+  classify(name: any): Observable<any> {
+    return this.http.post(environment.baseUrl + 'classify', name);
+  }
+
 }
