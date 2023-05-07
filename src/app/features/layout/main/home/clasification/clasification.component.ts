@@ -4,8 +4,6 @@ import {NgxSpinnerService} from "ngx-spinner";
 import {AlertService} from "ngx-alerts";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
-import {MatDialog} from "@angular/material/dialog";
-import {ModalviewComponent} from "../modalview/modalview.component";
 
 
 @Component({
@@ -20,8 +18,7 @@ export class ClasificationComponent {
     private spinner: NgxSpinnerService,
     private alertService: AlertService,
     private fileService: FileService,
-    private classifyService: ClassifyService,
-    private dialog: MatDialog
+    private classifyService: ClassifyService
   ) { }
 
 
@@ -51,15 +48,6 @@ export class ClasificationComponent {
   }
 
 
-  openModal(dataa: any) {
-    this.dialog.open(ModalviewComponent, {
-      width: '500px',
-      data: dataa
-    });
-  }
-
-
-
   async onSubmit(): Promise<any> {
     this.spinner.show()
     if (this.fileUploaded) {
@@ -69,7 +57,6 @@ export class ClasificationComponent {
       }
       this.classifyService.classify(name).subscribe((res: any) => {
         console.log(res);
-        this.openModal(res)
         this.spinner.hide()
       }, (error: any) => {
         console.log(error);

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import {ModalviewComponent} from "../modalview/modalview.component";
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
 import {AlertService} from "ngx-alerts";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
-import {MatDialog} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
@@ -22,13 +20,23 @@ export class MultiPersonComponent {
   formData: FormData = new FormData();
 
 
+  multiForm = new FormGroup({
+    splits: new FormControl('', [Validators.required]),
+  });
+  output: Array<any> = [];
+
+
+  get splits(): any {
+    return this.multiForm.get('splits');
+  }
+
+
   constructor(
     private router: Router,
     private spinner: NgxSpinnerService,
     private alertService: AlertService,
     private fileService: FileService,
     private classifyService: ClassifyService,
-    private dialog: MatDialog
   ) { }
 
 
@@ -39,7 +47,7 @@ export class MultiPersonComponent {
     if (file) {
       const formData  = new FormData();
       formData.append('file', file);
-      this.fileService.uploadFile(formData).subscribe((res: any) => {
+      this.fileService.uploadImgFile(formData).subscribe((res: any) => {
         this.alertService.success('File Successfully uploaded !');
         this.spinner.hide();
         this.fileUploaded = true;
@@ -53,47 +61,16 @@ export class MultiPersonComponent {
   }
 
 
-  openModal(dataa: any) {
-    this.dialog.open(ModalviewComponent, {
-      width: '500px',
-      data: dataa
-    });
-  }
 
-
-
-  async onSubmit(): Promise<any> {
-    this.spinner.show()
-    if (this.fileUploaded) {
-      // Call your second API with the file name
-      const name = {
-        name: this.fileName
-      }
-      this.classifyService.classify(name).subscribe((res: any) => {
-        console.log(res);
-        this.openModal(res)
-        this.spinner.hide()
-      }, (error: any) => {
-        console.log(error);
-        this.spinner.hide();
-      });
-    } else {
-      this.alertService.warning('Please upload a file before submitting !');
-      this.spinner.hide();
-    }
-  }
-
-
-
-
-  // async onSubmit(): Promise<any> {
+  // async onSubmit(splits:any): Promise<any> {
   //   this.spinner.show()
   //   if (this.fileUploaded) {
   //     // Call your second API with the file name
   //     const name = {
-  //       name: this.fileName
+  //       name: this.fileName,
+  //       num_splits: this.splits
   //     }
-  //     this.classifyService.classify(name).subscribe((res: any) => {
+  //     this.classifyService.multiClassify(name).subscribe((res: any) => {
   //       console.log(res);
   //       this.openModal(res)
   //       this.spinner.hide()
@@ -107,6 +84,38 @@ export class MultiPersonComponent {
   //   }
   // }
 
+  // splitImage(imageName: string, numSplits: number) {
+  //   const payload = {
+  //     name: imageName,
+  //     num_splits: numSplits,
+  //   };
+  //   return this.http.post('/split_image', payload);
+  // }
+
+
+  async onSubmit(splits: any, modal: HTMLButtonElement): Promise<any> {
+    this.spinner.show()
+    if (this.fileUploaded) {
+      // Call your second API with the file name
+      const name = {
+        name: this.fileName,
+        num_splits: Number(splits.value)
+      }
+      this.classifyService.multiClassify(name).subscribe((res: any) => {
+        console.log(res);
+        this.output=res.splits;
+        modal.click()
+        this.spinner.hide()
+      }, (error: any) => {
+        console.log(error);
+        this.spinner.hide();
+      });
+    } else {
+      this.alertService.warning('Please upload a file before submitting !');
+      this.spinner.hide();
+    }
+  }
+
   getbackhome() {
     this.router.navigate(['start/home'])
   }
@@ -116,4 +125,5 @@ export class MultiPersonComponent {
   // onFileSelected(event) {
   //   this.selectedFile = <File>event.target.files[0];
   // }
+
 }

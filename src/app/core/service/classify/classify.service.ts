@@ -18,4 +18,8 @@ export class ClassifyService {
     return this.http.post(environment.baseUrl + 'classify', name);
   }
 
+  multiClassify(name: any): Observable<any> {
+    return this.http.post(environment.baseUrl + 'split_image', name);
+  }
+
 }

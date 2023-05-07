@@ -13,4 +13,9 @@ export class FileService {
   uploadFile(formData: FormData) {
     return this.http.post(environment.baseUrl + 'upload', formData);
   }
+
+
+  uploadImgFile(formData: FormData) {
+    return this.http.post(environment.baseUrl + 'imgupload', formData);
+  }
 }

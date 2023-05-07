@@ -1,3 +1,10 @@
+
+
+<!-- Button trigger modal -->
+<button #modal type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
 <div class="video-background">
   <video autoplay loop muted style="background-size: cover !important; ">
     <source src="assets/backvie3.mp4" type="video/mp4">
@@ -12,9 +19,36 @@
       <P>3. UPLOAD IT TO THE SYSTEM</P>
       <P>4. GET THE RESULTS AND CLASSIFY YOUR POSE</P>
       <input type="file" (change)="onFileSelected($event)">
-      <!--      <button mat-raised-button (click)="openModal()">Open Modal</button>-->
-<!--      <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="onSubmit()" >CLASSIFY</button>-->
+
+      <div>
+        <div class="form-group">
+          <input class="form-control custom-input-style ps-3" type="number" #splits id="splits" placeholder="Number Of Persons">
+        </div>
+        <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="onSubmit(splits,modal)" >CLASSIFY</button>
+      </div>
     </div>
     <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="getbackhome()">BACK HOME</button>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let data of output">
+          {{data}}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
