@@ -1,19 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { MainRoutingModule } from './main-routing.module';
-import { MainComponent } from './main.component';
+import {MainRoutingModule} from './main-routing.module';
+import {MainComponent} from './main.component';
 import {HomeComponent} from "./home/home.component";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MultiPersonComponent} from "./home/multi-person/multi-person.component";
+import {GuideComponent} from "./home/guide/guide.component";
+import {ClasificationComponent} from "./home/clasification/clasification.component";
 
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    HomeComponent,
+    MultiPersonComponent,
+    GuideComponent,
+    ClasificationComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule
   ]
 })
-export class MainModule { }
+export class MainModule {
+}

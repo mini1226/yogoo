@@ -1,7 +1,7 @@
 
-
 <!-- Button trigger modal -->
-<button #modal type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button style="display: none" #modal type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
   Launch demo modal
 </button>
 
@@ -41,8 +41,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let data of output">
-          {{data}}
+        <div *ngFor="let data of output" style="width: 100%;">
+          <img [src]="'data:image/jpg;base64,'+data.data" alt="" width="200" height="200">
+          <span>{{data.pose}}</span>
         </div>
       </div>
       <div class="modal-footer">

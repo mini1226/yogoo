@@ -1,3 +1,9 @@
+
+<!-- Button trigger modal -->
+<button style="display: none" #modal type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 <div class="video-background">
   <video autoplay loop muted style="background-size: cover !important; ">
     <source src="assets/backvie2.mp4" type="video/mp4">
@@ -15,21 +21,30 @@
 <!--      <button mat-raised-button (click)="openModal()">Open Modal</button>-->
 
 
-      <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="onSubmit()" >CLASSIFY</button>
+      <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="onSubmit(modal)" >CLASSIFY</button>
     </div>
     <button class="btn-start" style="margin-top: 30px; text-align: center" (click)="getbackhome()">BACK HOME</button>
   </div>
 </div>
 
 
-
-
-
-<!--<div class="background-image-1" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('assets/backstart4.jpg')">-->
-<!--  <h4 class="title-one pt-1">CLASSIFY POSE</h4>-->
-<!--  <div class="classification">-->
-<!--    -->
-<!--  </div>-->
-<!--  <div>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <span>{{label}}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

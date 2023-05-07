@@ -21,10 +21,10 @@ import {CommonModule} from "@angular/common";
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}), // Add AlertModule to imports array
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}),
   ],
   providers: [
     {
@@ -34,8 +34,7 @@ import {CommonModule} from "@angular/common";
     }
   ],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule {
 }

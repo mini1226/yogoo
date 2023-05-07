@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
 import {AlertService} from "ngx-alerts";
@@ -13,61 +13,40 @@ import {ClassifyService} from "../../../../../core/service/classify/classify.ser
 })
 export class ClasificationComponent {
 
+  fileUploaded: boolean = false;
+  fileName: string = '';
+  file: File | null = null;
+  formData: FormData = new FormData();
+  // }
+  label: any;
+
   constructor(
     private router: Router,
     private spinner: NgxSpinnerService,
     private alertService: AlertService,
     private fileService: FileService,
     private classifyService: ClassifyService
-  ) { }
-
-
-  fileUploaded: boolean = false;
-  fileName: string = '';
-  file: File | null = null;
-  formData: FormData = new FormData();
-
+  ) {
+  }
 
   onFileSelected(event: Event): void {
     this.spinner.show();
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
-        const formData  = new FormData();
-        formData.append('file', file);
-        this.fileService.uploadFile(formData).subscribe((res: any) => {
-          this.alertService.success('File Successfully uploaded !');
-          this.spinner.hide();
-          this.fileUploaded = true;
-          this.fileName = file.name;
-        });
-          }else {
-          this.alertService.warning('File upload failed !');
-          this.spinner.hide();
-        }
-
-  }
-
-
-  async onSubmit(): Promise<any> {
-    this.spinner.show()
-    if (this.fileUploaded) {
-      // Call your second API with the file name
-      const name = {
-        name: this.fileName
-      }
-      this.classifyService.classify(name).subscribe((res: any) => {
-        console.log(res);
-        this.spinner.hide()
-      }, (error: any) => {
-        console.log(error);
+      const formData = new FormData();
+      formData.append('file', file);
+      this.fileService.uploadFile(formData).subscribe((res: any) => {
+        this.alertService.success('File Successfully uploaded !');
         this.spinner.hide();
+        this.fileUploaded = true;
+        this.fileName = file.name;
       });
     } else {
-      this.alertService.warning('Please upload a file before submitting !');
+      this.alertService.warning('File upload failed !');
       this.spinner.hide();
     }
-  }
 
+  }
 
 
   // async openDialogUpdate(data: any) {
@@ -90,8 +69,6 @@ export class ClasificationComponent {
   // }
 
 
-
-
   // onSubmit(): void {
   //   if (this.fileUploaded) {
   //     this.spinner.show();
@@ -105,11 +82,28 @@ export class ClasificationComponent {
   //   } else {
   //     this.alertService.warning('Please upload a file before submitting !');
   //   }
-  // }
 
-
-
-
+  async onSubmit(modal: HTMLButtonElement): Promise<any> {
+    this.spinner.show()
+    if (this.fileUploaded) {
+      // Call your second API with the file name
+      const name = {
+        name: this.fileName
+      }
+      this.classifyService.classify(name).subscribe((res: any) => {
+        console.log(res);
+        this.label=res;
+        modal.click()
+        this.spinner.hide()
+      }, (error: any) => {
+        console.log(error);
+        this.spinner.hide();
+      });
+    } else {
+      this.alertService.warning('Please upload a file before submitting !');
+      this.spinner.hide();
+    }
+  }
 
   getbackhome() {
     this.router.navigate(['start/home'])
