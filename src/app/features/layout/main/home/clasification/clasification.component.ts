@@ -49,6 +49,15 @@ export class ClasificationComponent {
   }
 
 
+  getStatusColor(status: string) {
+    if (status === 'Wrong pose performed !') {
+      return '#FC7171';
+    } else {
+      return '#D6FC71';
+    }
+  }
+
+
   // async openDialogUpdate(data: any) {
   //   if (data?.deviceOnOrOff === 'OFF') {
   //     if (await this.permissionService.checkPermission('EDIT_DEVICE')) {

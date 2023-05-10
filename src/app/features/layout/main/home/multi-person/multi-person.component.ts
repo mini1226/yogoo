@@ -61,6 +61,15 @@ export class MultiPersonComponent {
   }
 
 
+  getStatusColor(status: string) {
+    if (status === 'Unknown Pose') {
+      return '#FC7171';
+    } else {
+      return '#D6FC71';
+    }
+  }
+
+
 
   // async onSubmit(splits:any): Promise<any> {
   //   this.spinner.show()
@@ -101,15 +110,20 @@ export class MultiPersonComponent {
         name: this.fileName,
         num_splits: Number(splits.value)
       }
-      this.classifyService.multiClassify(name).subscribe((res: any) => {
-        console.log(res);
-        this.output=res.splits;
-        modal.click()
-        this.spinner.hide()
-      }, (error: any) => {
-        console.log(error);
+      if (name.num_splits) {
+        this.classifyService.multiClassify(name).subscribe((res: any) => {
+          console.log(res);
+          this.output=res.splits;
+          modal.click()
+          this.spinner.hide()
+        }, (error: any) => {
+          console.log(error);
+          this.spinner.hide();
+        });
+      }else{
+        this.alertService.warning('Please add number of persons before submitting !');
         this.spinner.hide();
-      });
+      }
     } else {
       this.alertService.warning('Please upload a file before submitting !');
       this.spinner.hide();
