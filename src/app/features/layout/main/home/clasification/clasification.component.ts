@@ -4,6 +4,7 @@ import {NgxSpinnerService} from "ngx-spinner";
 import {AlertService} from "ngx-alerts";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
+import {timeout} from "rxjs";
 
 
 @Component({
@@ -58,6 +59,7 @@ export class ClasificationComponent {
   }
 
 
+
   // async openDialogUpdate(data: any) {
   //   if (data?.deviceOnOrOff === 'OFF') {
   //     if (await this.permissionService.checkPermission('EDIT_DEVICE')) {
@@ -92,6 +94,29 @@ export class ClasificationComponent {
   //     this.alertService.warning('Please upload a file before submitting !');
   //   }
 
+  // async onSubmit(modal: HTMLButtonElement): Promise<any> {
+  //   this.spinner.show()
+  //   if (this.fileUploaded) {
+  //     // Call your second API with the file name
+  //     const name = {
+  //       name: this.fileName
+  //     }
+  //     this.classifyService.classify(name).subscribe((res: any) => {
+  //       console.log(res);
+  //       this.label=res;
+  //       modal.click()
+  //       this.spinner.hide()
+  //     }, (error: any) => {
+  //       this.alertService.warning('Posture not detected !');
+  //       this.spinner.hide();
+  //     });
+  //   } else {
+  //     this.alertService.warning('Please upload a file before submitting !');
+  //     this.spinner.hide();
+  //   }
+  // }
+
+
   async onSubmit(modal: HTMLButtonElement): Promise<any> {
     this.spinner.show()
     if (this.fileUploaded) {
@@ -99,13 +124,13 @@ export class ClasificationComponent {
       const name = {
         name: this.fileName
       }
-      this.classifyService.classify(name).subscribe((res: any) => {
+      this.classifyService.classify(name).pipe(timeout(25000)).subscribe((res: any) => {
         console.log(res);
         this.label=res;
         modal.click()
         this.spinner.hide()
       }, (error: any) => {
-        console.log(error);
+        this.alertService.warning('Posture not detected !');
         this.spinner.hide();
       });
     } else {
@@ -113,6 +138,9 @@ export class ClasificationComponent {
       this.spinner.hide();
     }
   }
+
+
+
 
   getbackhome() {
     this.router.navigate(['start/home'])
