@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../../core/service/user/user.service";
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
-import {AlertService} from "ngx-alerts";
 import {ClassifyService} from "../../../../core/service/classify/classify.service";
 
 @Component({

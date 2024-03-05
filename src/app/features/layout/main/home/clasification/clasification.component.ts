@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
-import {AlertService} from "ngx-alerts";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
 import {timeout} from "rxjs";
@@ -24,7 +23,6 @@ export class ClasificationComponent {
   constructor(
     private router: Router,
     private spinner: NgxSpinnerService,
-    private alertService: AlertService,
     private fileService: FileService,
     private classifyService: ClassifyService
   ) {
@@ -37,13 +35,11 @@ export class ClasificationComponent {
       const formData = new FormData();
       formData.append('file', file);
       this.fileService.uploadFile(formData).subscribe((res: any) => {
-        this.alertService.success('File Successfully uploaded !');
         this.spinner.hide();
         this.fileUploaded = true;
         this.fileName = file.name;
       });
     } else {
-      this.alertService.warning('File upload failed !');
       this.spinner.hide();
     }
 
@@ -130,11 +126,9 @@ export class ClasificationComponent {
         modal.click()
         this.spinner.hide()
       }, (error: any) => {
-        this.alertService.warning('Posture not detected !');
         this.spinner.hide();
       });
     } else {
-      this.alertService.warning('Please upload a file before submitting !');
       this.spinner.hide();
     }
   }

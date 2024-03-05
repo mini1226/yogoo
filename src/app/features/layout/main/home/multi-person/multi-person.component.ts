@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
-import {AlertService} from "ngx-alerts";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -34,7 +33,6 @@ export class MultiPersonComponent {
   constructor(
     private router: Router,
     private spinner: NgxSpinnerService,
-    private alertService: AlertService,
     private fileService: FileService,
     private classifyService: ClassifyService,
   ) { }
@@ -48,13 +46,11 @@ export class MultiPersonComponent {
       const formData  = new FormData();
       formData.append('file', file);
       this.fileService.uploadImgFile(formData).subscribe((res: any) => {
-        this.alertService.success('File Successfully uploaded !');
         this.spinner.hide();
         this.fileUploaded = true;
         this.fileName = file.name;
       });
     }else {
-      this.alertService.warning('File upload failed !');
       this.spinner.hide();
     }
 
@@ -121,11 +117,9 @@ export class MultiPersonComponent {
           this.spinner.hide();
         });
       }else{
-        this.alertService.warning('Please add number of persons before submitting !');
         this.spinner.hide();
       }
     } else {
-      this.alertService.warning('Please upload a file before submitting !');
       this.spinner.hide();
     }
   }

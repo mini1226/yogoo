@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NgxSpinnerModule} from "ngx-spinner";
-import {AlertModule} from "ngx-alerts";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/intercepters/auth.interceptor";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -24,7 +23,6 @@ import {CommonModule} from "@angular/common";
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'}),
   ],
   providers: [
     {

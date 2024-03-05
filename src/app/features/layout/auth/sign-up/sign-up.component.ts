@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../core/service/user/user.service";
 import {Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
-import {AlertService} from "ngx-alerts";
 
 
 @Component({
@@ -24,7 +23,6 @@ export class SignUpComponent {
     private userService: UserService,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private alertService: AlertService
   ) { }
 
 
@@ -55,13 +53,11 @@ export class SignUpComponent {
     if (this.signUpForm.valid) {
       this.userService.signup(this.signUpForm.value).subscribe((res: any) => {
         console.log(res);
-        this.alertService.success('User registered successfully');
         this.signUpForm.reset();
         this.router.navigate(['/sign-in/sign-in']);
         this.spinner.hide();
       });
     } else {
-      this.alertService.warning('User register failed !');
       this.spinner.hide();
     }
   }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../../../core/service/user/user.service";
-import {AlertService} from "ngx-alerts";
 import {NgxSpinnerService} from "ngx-spinner";
 
 
@@ -21,7 +20,6 @@ export class SignInComponent {
 
   constructor(private router: Router,
               private userService: UserService,
-              private alertService: AlertService,
               private spinner: NgxSpinnerService) {
   }
 
@@ -51,16 +49,13 @@ export class SignInComponent {
           sessionStorage.setItem('lastName', res.lastName);
           sessionStorage.setItem('email', res.email);
           // console.log(sessionStorage.user);
-          this.alertService.success('User Logged In successfully');
           this.router.navigate(['/start']);
           this.spinner.hide();
           resolve(true);
         }, (error: any) => {
           console.log(error.error);
           if (error.error.message === 'Login failed!, Invalid Credentials') {
-            this.alertService.danger('Login failed!, Invalid Credentials');
           } else {
-            this.alertService.danger('Login failed!, Invalid Credentials');
           }
           resolve(false);
           this.spinner.hide();
