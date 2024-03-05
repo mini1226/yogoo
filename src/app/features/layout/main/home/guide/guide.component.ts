@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
 import {Router} from "@angular/router";
-import {NgxSpinnerService} from "ngx-spinner";
 import {GuideService} from "../../../../../core/service/guide/guide.service";
 
 @Component({
@@ -14,23 +13,20 @@ export class GuideComponent {
   constructor(
     private guideService: GuideService,
     private router: Router,
-    private spinner: NgxSpinnerService,
   ) { }
 
   async guidePose(type:string, pose_id:any): Promise<boolean> {
     return new Promise(async resolve => {
-      await this.spinner.show();
+      // await this.spinner.show();
       const name = {
         pose: type
       }
       this.guideService.guide(name).subscribe({
         next:(res)=>{
           resolve(true);
-          // this.spinner.hide();
         },
         error:() => {
           resolve(false);
-          // this.spinner.hide();
         }
       });
 
@@ -42,11 +38,9 @@ export class GuideComponent {
       this.guideService.track(track).subscribe({
         next:(res)=>{
           resolve(true);
-          this.spinner.hide();
         },
         error:() => {
           resolve(false);
-          this.spinner.hide();
         }
       });
     });

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../core/service/user/user.service";
 import {Router} from "@angular/router";
-import {NgxSpinnerService} from "ngx-spinner";
 
 
 @Component({
@@ -22,7 +21,6 @@ export class SignUpComponent {
   constructor(
     private userService: UserService,
     private router: Router,
-    private spinner: NgxSpinnerService,
   ) { }
 
 
@@ -48,17 +46,14 @@ export class SignUpComponent {
 
   async signUp(): Promise<any> {
     // console.log(this.signUpForm.value);
-    this.spinner.show();
     this.signUpForm.markAllAsTouched();
     if (this.signUpForm.valid) {
       this.userService.signup(this.signUpForm.value).subscribe((res: any) => {
         console.log(res);
         this.signUpForm.reset();
         this.router.navigate(['/sign-in/sign-in']);
-        this.spinner.hide();
       });
     } else {
-      this.spinner.hide();
     }
   }
 

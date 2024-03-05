@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {NgxSpinnerService} from "ngx-spinner";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TrackService} from "../../../../../core/service/track/track.service";
 
@@ -37,15 +36,13 @@ export class TrackComponent {
 
   userPosesData: any[] = [];
 
-  constructor(private spinner: NgxSpinnerService,
+  constructor(
               private trackService: TrackService
   ) {}
 
   async ngOnInit(): Promise<any> {
-    await this.spinner.show();
     await this.getUser();
     await this.getHistory();
-    await this.spinner.hide();
   }
 
   getUser() {
@@ -58,14 +55,12 @@ export class TrackComponent {
 
   async getHistory(): Promise<any> {
     // console.log(this.signUpForm.value);
-    this.spinner.show();
     const user = {
       'user_id': this.userId
     }
     this.trackService.track(user).subscribe((res: any) => {
       console.log(res);
       this.userPosesData = res;
-      this.spinner.hide();
     });
   }
 

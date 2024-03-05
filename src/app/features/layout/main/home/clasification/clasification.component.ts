@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {NgxSpinnerService} from "ngx-spinner";
 import {FileService} from "../../../../../core/service/files/file.service";
 import {ClassifyService} from "../../../../../core/service/classify/classify.service";
 import {timeout} from "rxjs";
@@ -22,25 +21,22 @@ export class ClasificationComponent {
 
   constructor(
     private router: Router,
-    private spinner: NgxSpinnerService,
     private fileService: FileService,
     private classifyService: ClassifyService
   ) {
   }
 
   onFileSelected(event: Event): void {
-    this.spinner.show();
+
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
       this.fileService.uploadFile(formData).subscribe((res: any) => {
-        this.spinner.hide();
         this.fileUploaded = true;
         this.fileName = file.name;
       });
     } else {
-      this.spinner.hide();
     }
 
   }
@@ -114,7 +110,6 @@ export class ClasificationComponent {
 
 
   async onSubmit(modal: HTMLButtonElement): Promise<any> {
-    this.spinner.show()
     if (this.fileUploaded) {
       // Call your second API with the file name
       const name = {
@@ -124,12 +119,9 @@ export class ClasificationComponent {
         console.log(res);
         this.label=res;
         modal.click()
-        this.spinner.hide()
       }, (error: any) => {
-        this.spinner.hide();
       });
     } else {
-      this.spinner.hide();
     }
   }
 

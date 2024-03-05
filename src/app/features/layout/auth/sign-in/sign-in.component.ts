@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../../../core/service/user/user.service";
-import {NgxSpinnerService} from "ngx-spinner";
 
 
 
@@ -20,7 +19,7 @@ export class SignInComponent {
 
   constructor(private router: Router,
               private userService: UserService,
-              private spinner: NgxSpinnerService) {
+             ) {
   }
 
 
@@ -37,7 +36,6 @@ export class SignInComponent {
 
   signIn( ): Promise<boolean> {
     return new Promise(resolve => {
-      this.spinner.show();
       this.userService.signIn(this.signInForm.value)
         .subscribe((res: any) => {
           // const user = (res.userId, res.firstName, res.email);
@@ -50,7 +48,6 @@ export class SignInComponent {
           sessionStorage.setItem('email', res.email);
           // console.log(sessionStorage.user);
           this.router.navigate(['/start']);
-          this.spinner.hide();
           resolve(true);
         }, (error: any) => {
           console.log(error.error);
@@ -58,7 +55,6 @@ export class SignInComponent {
           } else {
           }
           resolve(false);
-          this.spinner.hide();
         });
     });
   }
