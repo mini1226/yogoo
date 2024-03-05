@@ -6,6 +6,7 @@ import {AuthGuard} from "../../../core/guard/auth.guard";
 import {ClasificationComponent} from "./home/clasification/clasification.component";
 import {GuideComponent} from "./home/guide/guide.component";
 import {MultiPersonComponent} from "./home/multi-person/multi-person.component";
+import {TrackComponent} from "./home/track/track.component";
 
 const routes: Routes = [
   {path:'', pathMatch:'full', component: MainComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'classify', component: ClasificationComponent},
   {path: 'guide', component: GuideComponent},
   {path: 'multi', component: MultiPersonComponent},
+  {path: 'track', component: TrackComponent},
 ];
 
 

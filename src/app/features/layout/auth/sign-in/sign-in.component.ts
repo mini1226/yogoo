@@ -43,9 +43,13 @@ export class SignInComponent {
       this.userService.signIn(this.signInForm.value)
         .subscribe((res: any) => {
           // const user = (res.userId, res.firstName, res.email);
-          // console.log(user);
+          // console.log(res);
           // sessionStorage.setItem('user', JSON.stringify(user));
           sessionStorage.setItem('token', JSON.stringify(res.token));
+          sessionStorage.setItem('userId', res.userId);
+          sessionStorage.setItem('firstName', res.firstName);
+          sessionStorage.setItem('lastName', res.lastName);
+          sessionStorage.setItem('email', res.email);
           // console.log(sessionStorage.user);
           this.alertService.success('User Logged In successfully');
           this.router.navigate(['/start']);

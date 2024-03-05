@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 })
 export class ClassifyService {
 
+
   constructor(private http: HttpClient) { }
 
   getClassify(): Observable<any> {

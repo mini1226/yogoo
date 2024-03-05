@@ -42,11 +42,22 @@ export class HomeComponent implements OnInit{
     this.router.navigate(['start/classify'])
   }
 
+  trackVersion() {
+    this.router.navigate(['start/track'])
+  }
+
   guideVersion() {
     this.router.navigate(['start/guide'])
   }
 
   multiVersion() {
     this.router.navigate(['start/multi'])
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

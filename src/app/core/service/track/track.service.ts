@@ -6,16 +6,12 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class GuideService {
+export class TrackService {
 
   constructor(private http: HttpClient) { }
 
-
-  guide(name: any): Observable<any> {
-    return this.http.post(environment.baseUrl + 'guide', name);
+  track(user_id: any): Observable<any> {
+    return this.http.post(environment.baseUrl + 'history', user_id);
   }
 
-  track(track: any): Observable<any> {
-    return this.http.post(environment.baseUrl + 'track', track);
-  }
 }

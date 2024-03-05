@@ -1,0 +1,66 @@
+<div class="background-image" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('assets/history.jpg')">
+
+  <h2 class="title-one pt-5">USER EXERCISE HISTORY</h2>
+  <div class="container" style="padding-top: 25px;" #element>
+    <div class="card">
+      <div class="card-body p-4">
+        <h6 class="align-content-start font-weight-bold"> USER ACCOUNT DETAILS</h6>
+      </div>
+
+      <div class="sidebar-profile d-flex flex-column justify-content-center pt-2 pb-3">
+        <div class="profile-details text-center pb-4">
+          <img src="assets/user.jpg" width="125" height="125" alt="line1">
+
+          <!--          <img src="../../../../../assets/user.jpg" alt="" width="125" style="border-radius: 100px">-->
+          <p class="mb-0 text-uppercase font-weight-bold">{{currentFirstName}} {{currentLastName}}</p>
+        </div>
+      </div>
+
+      <form id="form" autocomplete="off" style="padding: 50px">
+
+        <div class="form-group position-relative">
+          <label class="title-1" for="firstName">First Name</label>
+          <input value={{currentFirstName}} readonly class="form-control custom-input-style" id="firstName" placeholder="First Name" type="text">
+        </div>
+        <div class="form-group position-relative">
+          <label class="title-1" for="lastName">Last Name</label>
+          <input value={{currentLastName}} readonly class="form-control custom-input-style" id="lastName" placeholder="Last Name" type="text">
+        </div>
+        <div class="form-group position-relative">
+          <label class="title-1" for="email">Email</label>
+          <input value={{currentEmail}} readonly  class="form-control custom-input-style" id="email" placeholder="Email" type="email">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="container" style="padding-top: 150px;" #element>
+    <div class="card">
+      <div class="card-body p-4">
+        <h6 class="align-content-start font-weight-bold"> USER EXERCISE</h6>
+      </div>
+
+      <div class="sidebar-profile d-flex flex-column justify-content-center pt-2 pb-3">
+        <div class="profile-details text-center pb-4">
+          <div class="poses-container">
+            <div *ngFor="let userPose of userPosesData" class="pose-entry">
+              <div class="date">{{ userPose.access_time }}</div>
+              <ul class="pose-list">
+                <li *ngFor="let pose of userPose.poses" class="pose">{{ pose }}</li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+

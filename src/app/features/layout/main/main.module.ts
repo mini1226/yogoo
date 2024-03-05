@@ -7,6 +7,8 @@ import {HomeComponent} from "./home/home.component";
 import {MultiPersonComponent} from "./home/multi-person/multi-person.component";
 import {GuideComponent} from "./home/guide/guide.component";
 import {ClasificationComponent} from "./home/clasification/clasification.component";
+import { TrackComponent } from './home/track/track.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,12 +17,14 @@ import {ClasificationComponent} from "./home/clasification/clasification.compone
     HomeComponent,
     MultiPersonComponent,
     GuideComponent,
-    ClasificationComponent
+    ClasificationComponent,
+    TrackComponent
   ],
-  imports: [
-    CommonModule,
-    MainRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        MainRoutingModule,
+        ReactiveFormsModule
+    ]
 })
 export class MainModule {
 }

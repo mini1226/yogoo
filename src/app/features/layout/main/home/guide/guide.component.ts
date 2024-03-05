@@ -17,14 +17,29 @@ export class GuideComponent {
     private spinner: NgxSpinnerService,
   ) { }
 
-  async guidePose(type:string): Promise<boolean> {
+  async guidePose(type:string, pose_id:any): Promise<boolean> {
     return new Promise(async resolve => {
       await this.spinner.show();
       const name = {
         pose: type
       }
-      console.log(name)
       this.guideService.guide(name).subscribe({
+        next:(res)=>{
+          resolve(true);
+          // this.spinner.hide();
+        },
+        error:() => {
+          resolve(false);
+          // this.spinner.hide();
+        }
+      });
+
+      // await this.spinner.show();
+      const track = {
+        user_id: sessionStorage.getItem('userId'),
+        pose_id: pose_id
+      }
+      this.guideService.track(track).subscribe({
         next:(res)=>{
           resolve(true);
           this.spinner.hide();
