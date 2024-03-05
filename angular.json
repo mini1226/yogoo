@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "yogoo:build:production"
+              "buildTarget": "yogoo:build:production"
             },
             "development": {
-              "browserTarget": "yogoo:build:development"
+              "buildTarget": "yogoo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yogoo:build"
+            "buildTarget": "yogoo:build"
           }
         },
         "test": {
